@@ -53,7 +53,7 @@ $otp_pin=trim(fgets(STDIN));
 $header[] = "otp: $otp_pin"; 
 $verif_setpin=curl('https://api.gojekapi.com/wallet/pin','{"pin":"'.$pin.'"}',$header,$proxy);
 echo "[+] Process Redeem Voucher";
-echo "Tunggu 1 Menit Ya Bos!"
+echo "Tunggu 1 Menit Ya Bos!";
 sleep(60);
 $GOFOODBOBA07=curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments','{"promo_code":"GOFOODBOBA07"}',$header,$proxy);
 if (get_between($GOFOODBOBA07,'"success":',',')=="true"){
