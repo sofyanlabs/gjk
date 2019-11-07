@@ -53,7 +53,7 @@ $otp_pin=trim(fgets(STDIN));
 $header[] = "otp: $otp_pin"; 
 $verif_setpin=curl('https://api.gojekapi.com/wallet/pin','{"pin":"'.$pin.'"}',$header,$proxy);
 echo "[+] Process Redeem Voucher";
-echo "Tunggu 1 Menit Ya Bos!";
+echo "\nTunggu 1 Menit Ya Bos!";
 sleep(60);
 $GOFOODBOBA07=curl('https://api.gojekapi.com/go-promotions/v1/promotions/enrollments','{"promo_code":"GOFOODBOBA07"}',$header,$proxy);
 if (get_between($GOFOODBOBA07,'"success":',',')=="true"){
@@ -65,7 +65,12 @@ if (get_between($GOFOODBOBA07,'"success":',',')=="true"){
 	echo "[+] File Token saved in ".$live." \n";
 }
 else{
-	echo "Gagal \n";
+	echo "CUMA DAPET VOUCHER 10K NIH!\n";	
+	$live = "token-gagal.txt";
+	$fopen1 = fopen($live, "a+");
+	$fwrite1 = fwrite($fopen1, "TOKEN => ".$token." \nNOMOR => ".$nomer." \n");
+	fclose($fopen1);
+	echo "[+] File Token saved \n";
 }
 sleep(3);
      break;
